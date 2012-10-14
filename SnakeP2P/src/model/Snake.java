@@ -9,7 +9,7 @@ public class Snake extends Cell {
 	}
 
 	private static final int INITIAL_SIZE = 4;
-	private List<Cell> body;
+	protected List<Cell> body;
 	private Orientation direction;
 	
 	public Snake(Position pos, int size, Orientation o) {
