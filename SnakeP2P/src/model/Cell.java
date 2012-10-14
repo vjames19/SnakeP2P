@@ -1,23 +1,35 @@
 package model;
 
 public class Cell {
-	private int x;
-	private int y;
-
-	public Cell(int x, int y) {
-		setX(x);
-		setY(y);
+	private Position pos;
+	public Position getPos() {
+		return pos;
+	}
+	public void setPos(Position pos) {
+		this.pos = pos;
+	}
+	private int size;
+	
+	public int getSize() {
+		return size;
+	}
+	public void setSize(int size) {
+		this.size = size;
+	}
+	public Cell(Position pos, int size) {
+		setPos(pos);
+		setSize(size);
 	}
 	public int getX() {
-		return x;
+		return pos.getX();
 	}
 	public void setX(int x) {
-		this.x = x;
+		pos.setX(x);
 	}
 	public int getY() {
-		return y;
+		return pos.getY();
 	}
 	public void setY(int y) {
-		this.y = y;
+		pos.setY(y);
 	}
 }
