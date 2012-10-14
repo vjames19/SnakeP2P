@@ -4,6 +4,7 @@ public class Snake {
 
 	
 	private int x;
+	private int y;
 	/**
 	 * @param args
 	 */
