@@ -1,7 +1,7 @@
 package model;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.ArrayList;
 
 public class Snake extends Cell {
 	public enum Orientation {
@@ -12,29 +12,28 @@ public class Snake extends Cell {
 	private List<Cell> body;
 	private Orientation direction;
 	
-	public Snake(int x, int y, int size, Orientation o) {
-		super(x, y, size);
+	public Snake(Position pos, int size, Orientation o) {
+		super(pos, size);
 		this.body = new ArrayList<Cell>(4);
-		
-		if (o == Orientation.LEFT) {
-			for(int i = 0; i < INITIAL_SIZE; ++i) {
-				body.add( new Cell(x, y - i * size, size) );
+
+		Position offset = pos;
+		int x = pos.getX();
+		int y = pos.getY();
+		for (int i = 0; i < INITIAL_SIZE; ++i) {
+			if (o == Orientation.LEFT) {
+				offset = new Position(x, y - i * size);
 			}
-		}
-		else if (o == Orientation.RIGHT) {
-			for(int i = 0; i < INITIAL_SIZE; ++i) {
-				body.add( new Cell(x, y + i * size, size) );
+			else if (o == Orientation.RIGHT) {
+				offset = new Position(x, y + i * size);
 			}
-		}
-		else if (o == Orientation.DOWN) {
-			for(int i = 0; i < INITIAL_SIZE; ++i) {
-				body.add( new Cell(x - i * size, y, size) );
+			else if (o == Orientation.DOWN) {
+				offset = new Position(x - i * size, y);
 			}
-		}
-		else if (o == Orientation.UP) {
-			for(int i = 0; i < INITIAL_SIZE; ++i) {
-				body.add( new Cell(x + i * size, y, size) );
+			else if (o == Orientation.UP) {
+				offset = new Position(x + i * size, y);
 			}
+			
+			body.add( new Cell(offset, size) );
 		}
 	}
 
@@ -46,7 +45,7 @@ public class Snake extends Cell {
 		this.direction = direction;
 	}
 	
-	public int headPosition() {
-		return body.get(0);
+	public Position headPosition() {
+		return body.get(0).getPos();
 	}
 }
