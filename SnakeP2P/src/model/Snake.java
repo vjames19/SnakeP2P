@@ -3,6 +3,7 @@ package model;
 public class Snake {
 
 	
+	private int x;
 	/**
 	 * @param args
 	 */
