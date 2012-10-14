@@ -1,6 +1,8 @@
-package model;
+package model.consumables;
 
 import java.awt.Point;
+
+import model.Position;
 
 public class Apple extends Consumable {
 

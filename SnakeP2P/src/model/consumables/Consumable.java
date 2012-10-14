@@ -1,4 +1,7 @@
-package model;
+package model.consumables;
+
+import model.Cell;
+import model.Position;
 
 public class Consumable extends Cell {
 
